@@ -7,15 +7,15 @@ $varreduraCovid = new execVarreduraCovidController;
 $newsCovid  = new ultimasNoticiasController;
 
 //Endpoints que pegam dados
-Flight::route('GET /apicovid', array($dadosCovid, 'getDadosCovid'));
-Flight::route('GET /apicovid/totais', array($dadosCovid, 'getCovidTotais'));
-Flight::route('GET /apicovid/recuperados', array($dadosCovid, 'getRecuperados'));
-Flight::route('GET /apicovid/obitos', array($dadosCovid, 'getObitos'));
+Flight::route('GET /dados', array($dadosCovid, 'getDadosCovid'));
+Flight::route('GET /dados/totais', array($dadosCovid, 'getCovidTotais'));
+Flight::route('GET /dados/recuperados', array($dadosCovid, 'getRecuperados'));
+Flight::route('GET /dados/obitos', array($dadosCovid, 'getObitos'));
 
 //Endpoints de execução de varredura
-Flight::route('GET /apicovid/atualizar-casos', array($varreduraCovid, 'execVarreduraApiGoverno'));
-Flight::route('GET /apicovid/atualizar-acumulados', array($varreduraCovid, 'execTotalAcumulado'));
-Flight::route('GET /apicovid/ultimas-noticias', array($newsCovid, 'execUltimasNoticias'));
+Flight::route('GET /dados/atualizar-casos', array($varreduraCovid, 'execVarreduraApiGoverno'));
+Flight::route('GET /dados/atualizar-acumulados', array($varreduraCovid, 'execTotalAcumulado'));
+Flight::route('GET /dados/ultimas-noticias', array($newsCovid, 'execUltimasNoticias'));
 
 //Mapeando rota que não tem nada.
 Flight::map('notFound', function(){
